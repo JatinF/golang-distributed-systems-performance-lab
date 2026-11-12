@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="topologyTitle topologyDesc">
+<title id="topologyTitle">Deployment topology</title>
+<desc id="topologyDesc">The measured topology is one Windows workstation process. gRPC, the cache, JetStream, and PostgreSQL listen on 127.0.0.1. GitHub Actions is the only place an image build is attempted. No cluster was started.</desc>
+<rect width="1120" height="760" fill="#f4f7fb"/>
+<rect width="1120" height="100" fill="#101820"/>
+<rect y="96" width="1120" height="4" fill="#0f6e6e"/>
+<text x="32" y="38" fill="#7dcec8" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">LOCALHOST TOPOLOGY</text>
+<text x="32" y="72" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="28" font-weight="700">Where the lab actually ran</text>
+<text x="1088" y="46" fill="#8fe0b8" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="end">not a cluster</text>
+<text x="1088" y="70" fill="#c5d4e0" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" text-anchor="end">price none</text>
+<rect x="36" y="132" width="1048" height="300" rx="18" fill="#ffffff" stroke="#e1e8ef"/>
+<text x="60" y="168" fill="#1e3a5f" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">AUTHORING WORKSTATION</text>
+<text x="60" y="198" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="20" font-weight="700">One Go process</text>
+<text x="60" y="224" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="14">go1.26.4 windows/amd64 · 11th Gen Intel Core i7-1185G7 · 8 logical processors</text>
+<rect x="60" y="252" width="220" height="140" rx="12" fill="#f4f7fb" stroke="#e1e8ef"/>
+<text x="76" y="284" fill="#1e3a5f" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">gRPC</text>
+<text x="76" y="310" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">127.0.0.1</text>
+<text x="76" y="334" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">ephemeral port</text>
+<text x="76" y="358" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">unary and bidi</text>
+<rect x="304" y="252" width="220" height="140" rx="12" fill="#f4f7fb" stroke="#e1e8ef"/>
+<text x="320" y="284" fill="#9a6700" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">Cache</text>
+<text x="320" y="310" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">127.0.0.1</text>
+<text x="320" y="334" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">miniredis</text>
+<text x="320" y="358" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">not Redis Cluster</text>
+<rect x="548" y="252" width="240" height="140" rx="12" fill="#f4f7fb" stroke="#e1e8ef"/>
+<text x="564" y="284" fill="#1e3a5f" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">JetStream</text>
+<text x="564" y="310" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">127.0.0.1</text>
+<text x="564" y="334" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">one embedded server</text>
+<text x="564" y="358" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">file store in a temp dir</text>
+<rect x="812" y="252" width="240" height="140" rx="12" fill="#f4f7fb" stroke="#e1e8ef"/>
+<text x="828" y="284" fill="#1d4e89" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">PostgreSQL</text>
+<text x="828" y="310" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">127.0.0.1</text>
+<text x="828" y="334" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">embedded process</text>
+<text x="828" y="358" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">data dir removed on stop</text>
+<rect x="36" y="456" width="500" height="260" rx="18" fill="#ffffff" stroke="#e1e8ef"/>
+<text x="60" y="496" fill="#1f7a4d" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">WHAT PRODUCED THE NUMBERS</text>
+<text x="60" y="532" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="18" font-weight="700">go run ./cmd/lab bench</text>
+<text x="60" y="562" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="14">Writes reports/bench_results.json</text>
+<text x="60" y="590" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="14">CI runs go test -race, not this matrix</text>
+<text x="60" y="630" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">HTTP serve is optional</text>
+<text x="60" y="656" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="14">127.0.0.1:8096 when lab serve is started</text>
+<text x="60" y="684" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="14">The benchmark does not require that listener</text>
+<rect x="560" y="456" width="524" height="260" rx="18" fill="#ffffff" stroke="#e1e8ef"/>
+<text x="584" y="496" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">NOT STARTED HERE</text>
+<text x="584" y="532" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="18" font-weight="700">No pulled image and no cluster</text>
+<text x="584" y="566" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="14">Docker is not installed on this workstation</text>
+<text x="584" y="592" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="14">kubectl is not installed. The manifest was not applied</text>
+<text x="584" y="632" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">GitHub Actions is separate</text>
+<text x="584" y="658" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="14">ubuntu-24.04 can build the image</text>
+<text x="584" y="684" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="14">That job does not reproduce these timings</text>
+</svg>

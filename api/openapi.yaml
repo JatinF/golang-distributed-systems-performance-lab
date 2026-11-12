@@ -1,0 +1,122 @@
+openapi: 3.0.3
+info:
+  title: Go distributed systems performance lab
+  version: "0.1.0"
+  description: |
+    HTTP surface for the synthetic tenant SYN-TENANT-QUORUM.
+    This is a localhost lab. Remote PostgreSQL, Redis, NATS, and OIDC are not contacted.
+    Price is none.
+servers:
+  - url: http://127.0.0.1:8096
+paths:
+  /health:
+    get:
+      operationId: health
+      responses:
+        "200":
+          description: Process is up. This does not mean a remote dependency was contacted.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, service, price]
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  service:
+                    type: string
+                  price:
+                    type: string
+                    example: none
+  /v1/gates:
+    get:
+      operationId: listGates
+      responses:
+        "200":
+          description: Integrations that were not run, or blocked when a variable is set.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  price:
+                    type: string
+                  gates:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Gate"
+  /v1/jobs:
+    post:
+      operationId: submitJob
+      parameters:
+        - in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+          description: Bearer lab token. The value is not stored and is not written to logs by the handler.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobRequest"
+      responses:
+        "200":
+          description: The job completed or was recognized as a duplicate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Outcome"
+        "400":
+          description: The body was rejected or the caller cancelled.
+        "401":
+          description: Missing, expired, or mismatched lab token.
+        "408":
+          description: The deadline expired after the job was admitted.
+        "429":
+          description: The bounded queue was full and the deadline expired while waiting. Reason is backpressure.
+        "503":
+          description: The pool is shutting down or a required local store is unavailable.
+components:
+  schemas:
+    Gate:
+      type: object
+      required: [name, status, reason]
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+          enum: [not-run, blocked]
+        reason:
+          type: string
+    JobRequest:
+      type: object
+      required: [id, tenant_id]
+      properties:
+        id:
+          type: string
+        tenant_id:
+          type: string
+          example: SYN-TENANT-QUORUM
+        kind:
+          type: string
+          description: light, heavy, or rounds:N
+        payload:
+          type: string
+    Outcome:
+      type: object
+      required: [accepted, state, reason]
+      properties:
+        id:
+          type: string
+        accepted:
+          type: boolean
+        state:
+          type: string
+        reason:
+          type: string
+        result:
+          type: string

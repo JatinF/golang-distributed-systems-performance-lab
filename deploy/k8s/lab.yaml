@@ -1,0 +1,43 @@
+# Not applied. kubectl is not installed on the authoring workstation.
+# This manifest is a deployment sketch for a later cluster, not a running system.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: perf-lab
+  labels:
+    app: perf-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: perf-lab
+  template:
+    metadata:
+      labels:
+        app: perf-lab
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: lab
+          image: golang-distributed-systems-performance-lab:not-pulled-locally
+          args: ["health"]
+          ports:
+            - name: http
+              containerPort: 8096
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: perf-lab
+spec:
+  selector:
+    app: perf-lab
+  ports:
+    - name: http
+      port: 8096
+      targetPort: http

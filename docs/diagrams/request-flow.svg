@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="860" viewBox="0 0 1120 860" role="img" aria-labelledby="flowTitle flowDesc">
+<title id="flowTitle">Request flow and the stops that were tested</title>
+<desc id="flowDesc">A job passes the lab token, the ledger, and the bounded pool. Stops return unauthenticated, token_expired, signature_invalid, audience_mismatch, token_invalid, duplicate, backpressure, cancelled, deadline_exceeded, shutting_down, cache_unavailable, lost, and replayed. No timings are shown.</desc>
+<rect width="1120" height="860" fill="#f4f7fb"/>
+<rect width="1120" height="100" fill="#101820"/>
+<rect y="96" width="1120" height="4" fill="#0f6e6e"/>
+<text x="32" y="38" fill="#7dcec8" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">EXECUTED PATH</text>
+<text x="32" y="72" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="28" font-weight="700">Request flow</text>
+<text x="1088" y="46" fill="#8fe0b8" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="end">SYN-WORKER-INTAKE</text>
+<text x="1088" y="70" fill="#c5d4e0" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" text-anchor="end">reason codes, not timings</text>
+<rect x="32" y="132" width="240" height="300" rx="14" fill="#d9e3ec"/>
+<rect x="28" y="128" width="240" height="300" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="28" y="128" width="240" height="44" rx="14" fill="#0f5c6b"/>
+<rect x="28" y="152" width="240" height="20" fill="#0f5c6b"/>
+<text x="48" y="158" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">1 · Token</text>
+<text x="48" y="204" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Verify, then admit</text>
+<text x="48" y="230" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Signature, issuer, audience</text>
+<text x="48" y="252" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Tenant SYN-TENANT-QUORUM</text>
+<text x="48" y="286" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">Stops</text>
+<text x="48" y="310" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12">unauthenticated</text>
+<text x="48" y="330" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12">token_expired · signature_invalid</text>
+<text x="48" y="350" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12">audience_mismatch</text>
+<text x="48" y="370" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12">token_invalid</text>
+<line x1="272" y1="278" x2="300" y2="278" stroke="#8aa0b5" stroke-width="2"/>
+<path d="M300,273.5 L308,278 L300,282.5 Z" fill="#8aa0b5"/>
+<rect x="324" y="132" width="240" height="300" rx="14" fill="#d9e3ec"/>
+<rect x="320" y="128" width="240" height="300" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="320" y="128" width="240" height="44" rx="14" fill="#1d4e89"/>
+<rect x="320" y="152" width="240" height="20" fill="#1d4e89"/>
+<text x="340" y="158" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">2 · Ledger</text>
+<text x="340" y="204" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Remember done only</text>
+<text x="340" y="230" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">First caller runs the pool</text>
+<text x="340" y="252" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Waiters share that result</text>
+<text x="340" y="286" fill="#1d4e89" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">Second call</text>
+<text x="340" y="310" fill="#1d4e89" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">duplicate</text>
+<text x="340" y="342" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">A failed attempt is not stored</text>
+<text x="340" y="364" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">so a later call can retry</text>
+<line x1="564" y1="278" x2="592" y2="278" stroke="#8aa0b5" stroke-width="2"/>
+<path d="M592,273.5 L600,278 L592,282.5 Z" fill="#8aa0b5"/>
+<rect x="616" y="132" width="240" height="300" rx="14" fill="#d9e3ec"/>
+<rect x="612" y="128" width="240" height="300" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="612" y="128" width="240" height="44" rx="14" fill="#1f7a4d"/>
+<rect x="612" y="152" width="240" height="20" fill="#1f7a4d"/>
+<text x="632" y="158" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">3 · Pool</text>
+<text x="632" y="204" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Queue, then hash</text>
+<text x="632" y="230" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Admitted work returns done</text>
+<text x="632" y="252" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">The queue is not closed</text>
+<text x="632" y="286" fill="#9a6700" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">Stops</text>
+<text x="632" y="310" fill="#9a6700" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12">backpressure while queued</text>
+<text x="632" y="330" fill="#9a6700" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12">deadline_exceeded after admit</text>
+<text x="632" y="350" fill="#9a6700" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12">cancelled · shutting_down</text>
+<line x1="856" y1="278" x2="884" y2="278" stroke="#8aa0b5" stroke-width="2"/>
+<path d="M884,273.5 L892,278 L884,282.5 Z" fill="#8aa0b5"/>
+<rect x="908" y="132" width="180" height="300" rx="14" fill="#d9e3ec"/>
+<rect x="904" y="128" width="180" height="300" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="904" y="128" width="180" height="44" rx="14" fill="#1e3a5f"/>
+<rect x="904" y="152" width="180" height="20" fill="#1e3a5f"/>
+<text x="920" y="158" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">4 · Commit</text>
+<text x="920" y="204" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Then ack</text>
+<text x="920" y="232" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Cache fill</text>
+<text x="920" y="254" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">SQL if Postgres is up</text>
+<text x="920" y="286" fill="#1e3a5f" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">JetStream</text>
+<text x="920" y="310" fill="#1e3a5f" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12">ack after commit</text>
+<text x="920" y="334" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12">store_unavailable</text>
+<text x="920" y="354" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12">does not ack success</text>
+<rect x="28" y="456" width="1060" height="372" rx="16" fill="#ffffff" stroke="#e1e8ef"/>
+<text x="52" y="492" fill="#1e3a5f" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">FAULTS THAT THE DEMO AND BENCH EXERCISED</text>
+<text x="52" y="530" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">Cache</text>
+<text x="52" y="556" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">cache_hit after a completed job</text>
+<text x="52" y="578" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">cache_invalidated then cache_miss</text>
+<text x="52" y="600" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">cache_unavailable when the server closes</text>
+<text x="52" y="622" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">cache_recovered starts empty</text>
+<text x="430" y="530" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">JetStream</text>
+<text x="430" y="556" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">lost before publish, then retried</text>
+<text x="430" y="578" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">same Msg-Id is a server duplicate</text>
+<text x="430" y="600" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">a second id is an application duplicate</text>
+<text x="430" y="622" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">nak without a second apply is replayed</text>
+<text x="430" y="656" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">Reconnect and restart</text>
+<text x="430" y="682" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">A new client pulls unacked jobs</text>
+<text x="430" y="704" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">The file store is the broker restart</text>
+<text x="800" y="530" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">Database</text>
+<text x="800" y="556" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Eight callers, one winner</text>
+<text x="800" y="578" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">applies stays 1</text>
+<text x="800" y="612" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">Not on this path</text>
+<text x="800" y="638" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">No OPA bundle</text>
+<text x="800" y="660" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">No remote dial</text>
+<text x="800" y="682" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">No certificate was issued</text>
+<text x="52" y="780" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">A slow consumer holds ack past AckWait. The redelivery is still one apply.</text>
+</svg>

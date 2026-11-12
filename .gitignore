@@ -1,0 +1,6 @@
+bin/
+tools/
+.env
+coverage.out
+*.exe
+*.pprof

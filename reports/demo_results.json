@@ -1,0 +1,179 @@
+{
+  "tenant": "SYN-TENANT-QUORUM",
+  "price": "none",
+  "store": "embedded postgresql",
+  "bus": "embedded nats jetstream",
+  "cache": "in-process Redis protocol",
+  "steps": [
+    {
+      "name": "jobs",
+      "reason": "done",
+      "ok": true,
+      "detail": "8 jobs"
+    },
+    {
+      "name": "duplicate",
+      "reason": "duplicate",
+      "ok": true
+    },
+    {
+      "name": "cache-hit",
+      "reason": "cache_hit",
+      "ok": true
+    },
+    {
+      "name": "cache-invalidate",
+      "reason": "cache_invalidated",
+      "ok": true
+    },
+    {
+      "name": "cache-miss",
+      "reason": "cache_miss",
+      "ok": true
+    },
+    {
+      "name": "cache-down",
+      "reason": "cache_unavailable",
+      "ok": true
+    },
+    {
+      "name": "cache-recover",
+      "reason": "cache_recovered",
+      "ok": true
+    },
+    {
+      "name": "backpressure",
+      "reason": "backpressure",
+      "ok": true
+    },
+    {
+      "name": "cancel",
+      "reason": "cancelled",
+      "ok": true
+    },
+    {
+      "name": "deadline",
+      "reason": "deadline_exceeded",
+      "ok": true
+    },
+    {
+      "name": "shutdown",
+      "reason": "shutting_down",
+      "ok": true
+    },
+    {
+      "name": "jetstream-reconnect",
+      "reason": "done",
+      "ok": true,
+      "detail": "acked 2, reconnected, pulled the rest"
+    },
+    {
+      "name": "server-duplicate",
+      "reason": "duplicate",
+      "ok": true
+    },
+    {
+      "name": "app-duplicate",
+      "reason": "duplicate",
+      "ok": true
+    },
+    {
+      "name": "delay",
+      "reason": "done",
+      "ok": true,
+      "observed_ms": 50.906
+    },
+    {
+      "name": "loss",
+      "reason": "retried",
+      "ok": true,
+      "detail": "first attempt lost, retry delivered once"
+    },
+    {
+      "name": "replay",
+      "reason": "replayed",
+      "ok": true,
+      "detail": "ack was skipped, redelivery applied once"
+    },
+    {
+      "name": "expired-token",
+      "reason": "token_expired",
+      "ok": true
+    },
+    {
+      "name": "bad-signature",
+      "reason": "signature_invalid",
+      "ok": true
+    },
+    {
+      "name": "audience",
+      "reason": "audience_mismatch",
+      "ok": true
+    },
+    {
+      "name": "unauthenticated",
+      "reason": "unauthenticated",
+      "ok": true
+    },
+    {
+      "name": "other-tenant",
+      "reason": "token_invalid",
+      "ok": true
+    },
+    {
+      "name": "postgres",
+      "reason": "done",
+      "ok": true,
+      "detail": "one transaction won; applies stayed 1"
+    },
+    {
+      "name": "remote-gates",
+      "reason": "not-started",
+      "ok": true,
+      "detail": "postgres-remote=not-run, redis-remote=not-run, nats-remote=not-run, oidc-provider=not-run, docker-local=not-run, kubernetes=not-run, customer-deployment=not-run"
+    },
+    {
+      "name": "price",
+      "reason": "none",
+      "ok": true,
+      "detail": "no price was measured or applied"
+    }
+  ],
+  "gates": [
+    {
+      "name": "postgres-remote",
+      "status": "not-run",
+      "reason": "LAB_POSTGRES_URL is unset. A remote PostgreSQL was not contacted."
+    },
+    {
+      "name": "redis-remote",
+      "status": "not-run",
+      "reason": "LAB_REDIS_URL is unset. A remote Redis was not contacted."
+    },
+    {
+      "name": "nats-remote",
+      "status": "not-run",
+      "reason": "LAB_NATS_URL is unset. A remote NATS cluster was not contacted."
+    },
+    {
+      "name": "oidc-provider",
+      "status": "not-run",
+      "reason": "LAB_OIDC_ISSUER is unset. No OIDC provider was contacted."
+    },
+    {
+      "name": "docker-local",
+      "status": "not-run",
+      "reason": "Docker is not installed on this workstation. A local image build was not run."
+    },
+    {
+      "name": "kubernetes",
+      "status": "not-run",
+      "reason": "kubectl is not installed. No manifest was applied."
+    },
+    {
+      "name": "customer-deployment",
+      "status": "not-run",
+      "reason": "SYN-TENANT-QUORUM is synthetic. No customer deployment was made."
+    }
+  ]
+}

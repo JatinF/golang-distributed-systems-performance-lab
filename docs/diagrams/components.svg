@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="820" viewBox="0 0 1120 820" role="img" aria-labelledby="componentTitle componentDesc">
+<title id="componentTitle">Components and trust boundary</title>
+<desc id="componentDesc">SYN-TENANT-QUORUM runs in one process. Identity, the ledger, the worker pool, miniredis, embedded JetStream, and embedded PostgreSQL are inside the boundary. Remote PostgreSQL, Redis, NATS, OIDC, Docker, and Kubernetes are outside and were not contacted.</desc>
+<rect width="1120" height="820" fill="#f4f7fb"/>
+<rect width="1120" height="100" fill="#101820"/>
+<rect y="96" width="1120" height="4" fill="#0f6e6e"/>
+<text x="32" y="38" fill="#7dcec8" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">SYN-TENANT-QUORUM</text>
+<text x="32" y="72" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="28" font-weight="700">Components and trust boundary</text>
+<text x="1088" y="46" fill="#8fe0b8" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="end">one process</text>
+<text x="1088" y="70" fill="#c5d4e0" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" text-anchor="end">price none</text>
+<rect x="24" y="128" width="1072" height="520" rx="18" fill="none" stroke="#0f6e6e" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="44" y="154" fill="#0f5c6b" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">PROCESS TRUST BOUNDARY</text>
+<rect x="44" y="178" width="230" height="176" rx="14" fill="#d9e3ec"/>
+<rect x="40" y="174" width="230" height="176" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="40" y="174" width="230" height="42" rx="14" fill="#1e3a5f"/>
+<rect x="40" y="196" width="230" height="20" fill="#1e3a5f"/>
+<text x="56" y="202" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Caller</text>
+<text x="56" y="244" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">HTTP and gRPC</text>
+<text x="56" y="270" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">127.0.0.1 only</text>
+<text x="56" y="294" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Bearer stays in metadata</text>
+<text x="56" y="324" fill="#1d4e89" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700">Work.Submit and Stream</text>
+<line x1="274" y1="262" x2="302" y2="262" stroke="#8aa0b5" stroke-width="2"/>
+<path d="M302,257.5 L310,262 L302,266.5 Z" fill="#8aa0b5"/>
+<rect x="330" y="178" width="230" height="176" rx="14" fill="#d9e3ec"/>
+<rect x="326" y="174" width="230" height="176" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="326" y="174" width="230" height="42" rx="14" fill="#0f5c6b"/>
+<rect x="326" y="196" width="230" height="20" fill="#0f5c6b"/>
+<text x="342" y="202" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Identity</text>
+<text x="342" y="244" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Ed25519 in memory</text>
+<text x="342" y="270" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">https://syn.lab/perf-lab</text>
+<text x="342" y="294" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">lab://SYN-TENANT-QUORUM</text>
+<text x="342" y="324" fill="#0f5c6b" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700">key is not on disk</text>
+<line x1="560" y1="262" x2="588" y2="262" stroke="#8aa0b5" stroke-width="2"/>
+<path d="M588,257.5 L596,262 L588,266.5 Z" fill="#8aa0b5"/>
+<rect x="616" y="178" width="230" height="176" rx="14" fill="#d9e3ec"/>
+<rect x="612" y="174" width="230" height="176" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="612" y="174" width="230" height="42" rx="14" fill="#1d4e89"/>
+<rect x="612" y="196" width="230" height="20" fill="#1d4e89"/>
+<text x="628" y="202" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Ledger</text>
+<text x="628" y="244" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">One success per id</text>
+<text x="628" y="270" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Second caller: duplicate</text>
+<text x="628" y="294" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Failure is not remembered</text>
+<text x="628" y="324" fill="#1d4e89" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700">retry stays possible</text>
+<line x1="846" y1="262" x2="874" y2="262" stroke="#8aa0b5" stroke-width="2"/>
+<path d="M874,257.5 L882,262 L874,266.5 Z" fill="#8aa0b5"/>
+<rect x="902" y="178" width="170" height="176" rx="14" fill="#d9e3ec"/>
+<rect x="898" y="174" width="170" height="176" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="898" y="174" width="170" height="42" rx="14" fill="#1f7a4d"/>
+<rect x="898" y="196" width="170" height="20" fill="#1f7a4d"/>
+<text x="914" y="202" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Pool</text>
+<text x="914" y="244" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Bounded queue</text>
+<text x="914" y="270" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">goroutines</text>
+<text x="914" y="294" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">mutex and cond</text>
+<text x="914" y="324" fill="#1f7a4d" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700">SHA-256 body</text>
+<rect x="44" y="392" width="330" height="156" rx="14" fill="#d9e3ec"/>
+<rect x="40" y="388" width="330" height="156" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="40" y="388" width="330" height="42" rx="14" fill="#9a6700"/>
+<rect x="40" y="410" width="330" height="20" fill="#9a6700"/>
+<text x="56" y="416" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Cache · miniredis</text>
+<text x="56" y="458" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">Redis protocol on 127.0.0.1</text>
+<text x="56" y="484" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Hit, miss, and invalidate</text>
+<text x="56" y="512" fill="#9a6700" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">Closed server: cache_unavailable</text>
+<rect x="394" y="392" width="340" height="156" rx="14" fill="#d9e3ec"/>
+<rect x="390" y="388" width="340" height="156" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="390" y="388" width="340" height="42" rx="14" fill="#1e3a5f"/>
+<rect x="390" y="410" width="340" height="20" fill="#1e3a5f"/>
+<text x="406" y="416" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">JetStream · embedded NATS</text>
+<text x="406" y="458" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">SYN_STREAM_JOBS · lab.jobs</text>
+<text x="406" y="484" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Durable SYN-DURABLE-POOL</text>
+<text x="406" y="512" fill="#1e3a5f" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">Ack after the ledger commits</text>
+<rect x="754" y="392" width="318" height="156" rx="14" fill="#d9e3ec"/>
+<rect x="750" y="388" width="318" height="156" rx="14" fill="#ffffff" stroke="#e1e8ef"/>
+<rect x="750" y="388" width="318" height="42" rx="14" fill="#1d4e89"/>
+<rect x="750" y="410" width="318" height="20" fill="#1d4e89"/>
+<text x="766" y="416" fill="#ffffff" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">PostgreSQL · embedded</text>
+<text x="766" y="458" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="15" font-weight="700">pgx on 127.0.0.1</text>
+<text x="766" y="484" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">One winner. applies stays 1</text>
+<text x="766" y="512" fill="#1d4e89" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700">DSN is not logged</text>
+<text x="560" y="612" fill="#0f5c6b" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle">OPA is outside this hot path. A failed token check does not fall open.</text>
+<rect x="24" y="672" width="1072" height="120" rx="16" fill="#ffffff" stroke="#e1e8ef"/>
+<text x="48" y="704" fill="#9b2c2c" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">OUTSIDE THE BOUNDARY · NOT CONTACTED</text>
+<text x="48" y="736" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">Remote PostgreSQL, Redis, NATS, and OIDC</text>
+<text x="48" y="762" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">A set variable is blocked. The value is not dialed and is not printed.</text>
+<text x="700" y="736" fill="#102033" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="16" font-weight="700">Docker and kubectl</text>
+<text x="700" y="762" fill="#5c6b7a" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="13">Not installed. Nothing was applied.</text>
+</svg>

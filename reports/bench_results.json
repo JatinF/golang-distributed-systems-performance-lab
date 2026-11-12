@@ -1,0 +1,672 @@
+{
+  "go": "go1.26.4",
+  "os": "windows",
+  "arch": "amd64",
+  "cpus": 8,
+  "gomaxprocs": 8,
+  "processor": "11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz",
+  "price": "none",
+  "measurement": "Each row is an attempt on this workstation. Achieved throughput is completed work divided by wall time. Saturation and failure are outcomes of the attempt, not targets. CI runs go test and does not reproduce this matrix. Remote PostgreSQL, Redis, NATS, OIDC, Docker, and Kubernetes were not contacted.",
+  "store": "embedded postgresql, 127.0.0.1, sslmode=disable",
+  "bus": "embedded nats jetstream, file store, 127.0.0.1",
+  "cache": "in-process Redis protocol (miniredis)",
+  "experiments": [
+    {
+      "name": "worker-light",
+      "config": "workers=1 queue=1 jobs=3000 rounds=1",
+      "offered": 3000,
+      "completed": 3000,
+      "achieved_per_sec": 221814.74,
+      "p50_us": 2140.4,
+      "p95_us": 4363.8,
+      "sample_mean_us": 1946.642,
+      "zero_samples": 742,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "baseline",
+      "reasons": {
+        "done": 3000
+      }
+    },
+    {
+      "name": "worker-light",
+      "config": "workers=8 queue=8 jobs=3000 rounds=1",
+      "offered": 3000,
+      "completed": 3000,
+      "achieved_per_sec": 349450.78,
+      "p50_us": 0,
+      "p95_us": 2769,
+      "sample_mean_us": 411.727,
+      "zero_samples": 2197,
+      "latency_method": "per-request samples include zero readings because the call finished inside one Windows clock tick. achieved_per_sec is elapsed completions. p50_us is the raw sample and is not a claim that the work was instant",
+      "saturated": false,
+      "failed": false,
+      "reason": "throughput increased",
+      "reasons": {
+        "done": 3000
+      }
+    },
+    {
+      "name": "worker-light",
+      "config": "workers=32 queue=32 jobs=3000 rounds=1",
+      "offered": 3000,
+      "completed": 3000,
+      "achieved_per_sec": 403160.781,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 37.793,
+      "zero_samples": 2878,
+      "latency_method": "per-request samples include zero readings because the call finished inside one Windows clock tick. achieved_per_sec is elapsed completions. p50_us is the raw sample and is not a claim that the work was instant",
+      "saturated": false,
+      "failed": false,
+      "reason": "throughput increased",
+      "reasons": {
+        "done": 3000
+      }
+    },
+    {
+      "name": "worker-light",
+      "config": "workers=128 queue=128 jobs=3000 rounds=1",
+      "offered": 3000,
+      "completed": 3000,
+      "achieved_per_sec": 400325.598,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 51.647,
+      "zero_samples": 2866,
+      "latency_method": "per-request samples include zero readings because the call finished inside one Windows clock tick. achieved_per_sec is elapsed completions. p50_us is the raw sample and is not a claim that the work was instant",
+      "saturated": true,
+      "failed": false,
+      "reason": "adding workers stopped helping",
+      "reasons": {
+        "done": 3000
+      }
+    },
+    {
+      "name": "worker-heavy",
+      "config": "workers=1 queue=1 jobs=192 rounds=8192",
+      "offered": 192,
+      "completed": 192,
+      "achieved_per_sec": 1132.25,
+      "p50_us": 75714.9,
+      "p95_us": 148989.9,
+      "sample_mean_us": 75083.064,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "baseline",
+      "reasons": {
+        "done": 192
+      }
+    },
+    {
+      "name": "worker-heavy",
+      "config": "workers=8 queue=8 jobs=192 rounds=8192",
+      "offered": 192,
+      "completed": 192,
+      "achieved_per_sec": 5982.93,
+      "p50_us": 9015.9,
+      "p95_us": 18667.2,
+      "sample_mean_us": 8429.458,
+      "zero_samples": 23,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "throughput increased",
+      "reasons": {
+        "done": 192
+      }
+    },
+    {
+      "name": "worker-heavy",
+      "config": "workers=32 queue=32 jobs=192 rounds=8192",
+      "offered": 192,
+      "completed": 192,
+      "achieved_per_sec": 6493.528,
+      "p50_us": 1502.6,
+      "p95_us": 2966.3,
+      "sample_mean_us": 1218.601,
+      "zero_samples": 72,
+      "latency_method": "per-request wall time",
+      "saturated": true,
+      "failed": false,
+      "reason": "adding workers stopped helping",
+      "reasons": {
+        "done": 192
+      }
+    },
+    {
+      "name": "worker-heavy",
+      "config": "workers=128 queue=128 jobs=192 rounds=8192",
+      "offered": 192,
+      "completed": 192,
+      "achieved_per_sec": 7415.389,
+      "p50_us": 1002.5,
+      "p95_us": 2013,
+      "sample_mean_us": 1065.785,
+      "zero_samples": 67,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "throughput increased",
+      "reasons": {
+        "done": 192
+      }
+    },
+    {
+      "name": "load-light",
+      "config": "target_per_sec=100 rounds=1 workers=8 queue=32 deadline=1s",
+      "offered": 100,
+      "completed": 100,
+      "achieved_per_sec": 100.948,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 100,
+      "latency_method": "per-request samples include zero readings because the call finished inside one Windows clock tick. achieved_per_sec is elapsed completions. p50_us is the raw sample and is not a claim that the work was instant",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "paced=true launch_s=0.991 offer_per_sec=100.9",
+      "reasons": {
+        "done": 100
+      }
+    },
+    {
+      "name": "load-cpu",
+      "config": "target_per_sec=100 rounds=2048 workers=8 queue=32 deadline=1s",
+      "offered": 100,
+      "completed": 100,
+      "achieved_per_sec": 100.96,
+      "p50_us": 0,
+      "p95_us": 376.7,
+      "sample_mean_us": 30.299,
+      "zero_samples": 94,
+      "latency_method": "per-request samples include zero readings because the call finished inside one Windows clock tick. achieved_per_sec is elapsed completions. p50_us is the raw sample and is not a claim that the work was instant",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "paced=true launch_s=0.990 offer_per_sec=101.0",
+      "reasons": {
+        "done": 100
+      }
+    },
+    {
+      "name": "load-light",
+      "config": "target_per_sec=1000 rounds=1 workers=8 queue=32 deadline=1s",
+      "offered": 1000,
+      "completed": 1000,
+      "achieved_per_sec": 283865.107,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 11.952,
+      "zero_samples": 996,
+      "latency_method": "per-request samples include zero readings because the call finished inside one Windows clock tick. achieved_per_sec is elapsed completions. p50_us is the raw sample and is not a claim that the work was instant",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "paced=false launch_s=0.001 offer_per_sec=1869857.9",
+      "reasons": {
+        "done": 1000
+      }
+    },
+    {
+      "name": "load-cpu",
+      "config": "target_per_sec=1000 rounds=2048 workers=8 queue=32 deadline=1s",
+      "offered": 1000,
+      "completed": 1000,
+      "achieved_per_sec": 33462.051,
+      "p50_us": 28880.6,
+      "p95_us": 29884.6,
+      "sample_mean_us": 28637.264,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "paced=false launch finished inside one Windows clock tick, so offer_per_sec is not computed",
+      "reasons": {
+        "done": 1000
+      }
+    },
+    {
+      "name": "load-light",
+      "config": "target_per_sec=10000 rounds=1 workers=8 queue=32 deadline=1s",
+      "offered": 10000,
+      "completed": 10000,
+      "achieved_per_sec": 340401.197,
+      "p50_us": 6002,
+      "p95_us": 12506.2,
+      "sample_mean_us": 5825.456,
+      "zero_samples": 2949,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "paced=false launch_s=0.021 offer_per_sec=478073.2",
+      "reasons": {
+        "done": 10000
+      }
+    },
+    {
+      "name": "load-cpu",
+      "config": "target_per_sec=10000 rounds=2048 workers=8 queue=32 deadline=1s",
+      "offered": 10000,
+      "completed": 10000,
+      "achieved_per_sec": 29304.888,
+      "p50_us": 222116.5,
+      "p95_us": 300054.3,
+      "sample_mean_us": 194751.329,
+      "zero_samples": 45,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "paced=false launch_s=0.036 offer_per_sec=281237.0",
+      "reasons": {
+        "done": 10000
+      }
+    },
+    {
+      "name": "grpc",
+      "config": "unary requests=400 client_goroutines=400 server_workers=8",
+      "offered": 400,
+      "completed": 400,
+      "achieved_per_sec": 25905.058,
+      "p50_us": 14659.2,
+      "p95_us": 15441,
+      "sample_mean_us": 14945.349,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "reasons": {
+        "done": 400
+      }
+    },
+    {
+      "name": "grpc",
+      "config": "bidi_stream requests=400 pipelined server_workers=8",
+      "offered": 400,
+      "completed": 400,
+      "achieved_per_sec": 15098.556,
+      "p50_us": 0,
+      "p95_us": 999.1,
+      "sample_mean_us": 66.232,
+      "zero_samples": 374,
+      "latency_method": "per-request samples include zero readings because the call finished inside one Windows clock tick. achieved_per_sec is elapsed completions. p50_us is the raw sample and is not a claim that the work was instant",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "samples are time blocked in Recv on one pipelined stream, not an isolated round trip",
+      "reasons": {
+        "done": 400
+      }
+    },
+    {
+      "name": "caching",
+      "config": "hit",
+      "offered": 1000,
+      "completed": 1000,
+      "achieved_per_sec": 20652.068,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 46.917,
+      "zero_samples": 971,
+      "latency_method": "per-request samples include zero readings because the call finished inside one Windows clock tick. achieved_per_sec is elapsed completions. p50_us is the raw sample and is not a claim that the work was instant",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "reasons": {
+        "cache_hit": 1000
+      }
+    },
+    {
+      "name": "caching",
+      "config": "miss",
+      "offered": 1000,
+      "completed": 1000,
+      "achieved_per_sec": 24503.198,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 40.811,
+      "zero_samples": 970,
+      "latency_method": "per-request samples include zero readings because the call finished inside one Windows clock tick. achieved_per_sec is elapsed completions. p50_us is the raw sample and is not a claim that the work was instant",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "reasons": {
+        "cache_miss": 1000
+      }
+    },
+    {
+      "name": "caching",
+      "config": "invalidation",
+      "offered": 1000,
+      "completed": 1000,
+      "achieved_per_sec": 7553.412,
+      "p50_us": 0,
+      "p95_us": 512.7,
+      "sample_mean_us": 131.974,
+      "zero_samples": 934,
+      "latency_method": "per-request samples include zero readings because the call finished inside one Windows clock tick. achieved_per_sec is elapsed completions. p50_us is the raw sample and is not a claim that the work was instant",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "reasons": {
+        "cache_invalidated": 1000
+      }
+    },
+    {
+      "name": "caching",
+      "config": "unavailable-then-recover",
+      "offered": 2,
+      "completed": 2,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "cache_recovered",
+      "reasons": {
+        "cache_miss": 1,
+        "cache_unavailable": 1
+      }
+    },
+    {
+      "name": "messaging",
+      "config": "normal",
+      "offered": 200,
+      "completed": 200,
+      "achieved_per_sec": 8093.234,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "published=200 fetched=200",
+      "reasons": {
+        "apply_done": 200,
+        "done": 200
+      }
+    },
+    {
+      "name": "messaging",
+      "config": "duplicate-server",
+      "offered": 100,
+      "completed": 100,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "second publish with the same Msg-Id was a server duplicate; one copy was fetched"
+    },
+    {
+      "name": "messaging",
+      "config": "duplicate-application",
+      "offered": 80,
+      "completed": 80,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "done=40 duplicate=40 fetched=80",
+      "reasons": {
+        "done": 40,
+        "duplicate": 40
+      }
+    },
+    {
+      "name": "messaging",
+      "config": "delayed",
+      "offered": 20,
+      "completed": 20,
+      "achieved_per_sec": 24.485,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 40841.1,
+      "zero_samples": 0,
+      "latency_method": "delay is a wall sleep before publish; this clock can resolve tens of milliseconds",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "injected_delay=40ms total_ms=816.822"
+    },
+    {
+      "name": "messaging",
+      "config": "loss-then-retry",
+      "offered": 30,
+      "completed": 30,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "lost_attempts=29 published=30 fetched=30 dropped_counter=29",
+      "reasons": {
+        "lost": 29,
+        "retried": 30
+      }
+    },
+    {
+      "name": "messaging",
+      "config": "slow-consumer",
+      "offered": 1,
+      "completed": 1,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "ack_wait=300ms handler_sleep=700ms deliveries=2; slow ack caused redelivery"
+    },
+    {
+      "name": "failures",
+      "config": "reconnect",
+      "offered": 2,
+      "completed": 2,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "client closed and reopened; durable consumer returned unacked jobs"
+    },
+    {
+      "name": "failures",
+      "config": "restart",
+      "offered": 3,
+      "completed": 3,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "embedded server stopped and started on the same file store; unacked jobs were fetched"
+    },
+    {
+      "name": "failures",
+      "config": "replay",
+      "offered": 1,
+      "completed": 1,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "replayed",
+      "notes": "ledger committed, ack was skipped, redelivery did not apply twice"
+    },
+    {
+      "name": "database",
+      "config": "tenant-kind",
+      "offered": 30,
+      "completed": 30,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 148.88,
+      "zero_samples": 0,
+      "latency_method": "mean of timed SELECT statements inside one transaction, separate from EXPLAIN ANALYZE",
+      "saturated": false,
+      "failed": false,
+      "reason": "measured",
+      "notes": "seqscan_off=false iterations=30",
+      "plan": "Aggregate  (cost=8.30..8.31 rows=1 width=8) (actual time=0.257..0.258 rows=1.00 loops=1)\n  Buffers: shared hit=47\n  -\u003e  Index Only Scan using jobs_tenant_kind_idx on jobs  (cost=0.28..8.30 rows=1 width=0) (actual time=0.209..0.246 rows=80.00 loops=1)\n        Index Cond: ((tenant_id = 'SYN-TENANT-1'::text) AND (kind = 'kind-1'::text))\n        Heap Fetches: 80\n        Index Searches: 1\n        Buffers: shared hit=47\nPlanning:\n  Buffers: shared hit=14\nPlanning Time: 0.210 ms\nExecution Time: 0.292 ms"
+    },
+    {
+      "name": "database",
+      "config": "token",
+      "offered": 30,
+      "completed": 30,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 501.79,
+      "zero_samples": 0,
+      "latency_method": "mean of timed SELECT statements inside one transaction, separate from EXPLAIN ANALYZE",
+      "saturated": false,
+      "failed": false,
+      "reason": "measured",
+      "notes": "seqscan_off=false iterations=30",
+      "plan": "Aggregate  (cost=63.27..63.28 rows=1 width=8) (actual time=0.345..0.346 rows=1.00 loops=1)\n  Buffers: shared hit=46\n  -\u003e  Seq Scan on jobs  (cost=0.00..63.25 rows=7 width=0) (actual time=0.016..0.343 rows=1.00 loops=1)\n        Filter: (token = 'tok-1'::text)\n        Rows Removed by Filter: 3999\n        Buffers: shared hit=46\nPlanning Time: 0.036 ms\nExecution Time: 0.364 ms"
+    },
+    {
+      "name": "database",
+      "config": "tenant-kind-seqscan-off",
+      "offered": 30,
+      "completed": 30,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 131.603,
+      "zero_samples": 0,
+      "latency_method": "mean of timed SELECT statements inside one transaction, separate from EXPLAIN ANALYZE",
+      "saturated": false,
+      "failed": false,
+      "reason": "measured",
+      "notes": "seqscan_off=true iterations=30",
+      "plan": "Aggregate  (cost=8.30..8.31 rows=1 width=8) (actual time=0.041..0.042 rows=1.00 loops=1)\n  Buffers: shared hit=47\n  -\u003e  Index Only Scan using jobs_tenant_kind_idx on jobs  (cost=0.28..8.30 rows=1 width=0) (actual time=0.015..0.034 rows=80.00 loops=1)\n        Index Cond: ((tenant_id = 'SYN-TENANT-1'::text) AND (kind = 'kind-1'::text))\n        Heap Fetches: 80\n        Index Searches: 1\n        Buffers: shared hit=47\nPlanning Time: 0.078 ms\nExecution Time: 0.054 ms"
+    },
+    {
+      "name": "database",
+      "config": "concurrent-complete",
+      "offered": 8,
+      "completed": 8,
+      "achieved_per_sec": 0,
+      "p50_us": 0,
+      "p95_us": 0,
+      "sample_mean_us": 0,
+      "zero_samples": 0,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "calls=8 winners=1 applies=1"
+    },
+    {
+      "name": "resource-pressure",
+      "config": "workers=8 queue=8 jobs=160 rounds=8192 cpu_profile=on",
+      "offered": 160,
+      "completed": 160,
+      "achieved_per_sec": 5582.031,
+      "p50_us": 1547.8,
+      "p95_us": 2750.3,
+      "sample_mean_us": 1353.874,
+      "zero_samples": 43,
+      "latency_method": "per-request wall time",
+      "saturated": false,
+      "failed": false,
+      "reason": "completed",
+      "notes": "goroutines=32 heap_alloc=8662608 total_alloc=133740312 num_gc=21",
+      "reasons": {
+        "done": 160
+      }
+    }
+  ],
+  "profile": {
+    "cpu_top": "File: lab.exe\nBuild ID: C:\\Users\\Jatin\\AppData\\Local\\Temp\\go-build3762557249\\b001\\exe\\lab.exe2026-11-12 11:51:15.2447465 -0800 PST\nType: cpu\nTime: 2026-11-12 11:51:38 PST\nDuration: 28.66ms, Total samples = 160ms (558.20%)\nShowing nodes accounting for 160ms, 100% of 160ms total\n      flat  flat%   sum%        cum   cum%\n     100ms 62.50% 62.50%      100ms 62.50%  crypto/internal/fips140/sha256.blockSHANI\n      20ms 12.50% 75.00%      120ms 75.00%  crypto/internal/fips140/sha256.(*Digest).checkSum\n      20ms 12.50% 87.50%      150ms 93.75%  crypto/sha256.Sum256\n      10ms  6.25% 93.75%      130ms 81.25%  crypto/internal/fips140/sha256.(*Digest).Sum\n      10ms  6.25%   100%      160ms   100%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/work.Digest\n         0     0%   100%      100ms 62.50%  crypto/internal/fips140/sha256.(*Digest).Write\n         0     0%   100%      100ms 62.50%  crypto/internal/fips140/sha256.block\n         0     0%   100%      160ms   100%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/bench.runPool.Handler.func2\n         0     0%   100%      160ms   100%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/pool.(*Pool).run\n         0     0%   100%      160ms   100%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/pool.(*Pool).worker\n",
+    "heap_top": "File: lab.exe\nBuild ID: C:\\Users\\Jatin\\AppData\\Local\\Temp\\go-build3762557249\\b001\\exe\\lab.exe2026-11-12 11:51:15.2447465 -0800 PST\nType: inuse_space\nTime: 2026-11-12 11:51:38 PST\nShowing nodes accounting for 20578.74kB, 100% of 20578.74kB total\nShowing top 12 nodes out of 86\n      flat  flat%   sum%        cum   cum%\n    8192kB 39.81% 39.81%     8192kB 39.81%  github.com/xi2/xz.xzDecLZMA2Reset\n 7173.58kB 34.86% 74.67%  7173.58kB 34.86%  runtime.mallocgc\n  553.04kB  2.69% 77.35%   553.04kB  2.69%  github.com/nats-io/nats-server/v2/server.newClosedRingBuffer\n  553.04kB  2.69% 80.04%   553.04kB  2.69%  time.newTimer\n  515.32kB  2.50% 82.55%   515.32kB  2.50%  github.com/nats-io/nats-server/v2/server.(*Server).createClientEx\n  515.32kB  2.50% 85.05%   515.32kB  2.50%  github.com/nats-io/nats-server/v2/server.(*Server).createInternalClient\n  514.63kB  2.50% 87.55%   514.63kB  2.50%  vendor/golang.org/x/net/http2/hpack.init\n  513.50kB  2.50% 90.05%   513.50kB  2.50%  regexp/syntax.(*compiler).inst\n  512.10kB  2.49% 92.53%   512.10kB  2.49%  github.com/nats-io/nats-server/v2/server.(*Sublist).Insert\n  512.09kB  2.49% 95.02%   512.09kB  2.49%  github.com/nats-io/nats-server/v2/server.(*Server).setJetStreamExportSubs\n  512.09kB  2.49% 97.51%  1024.20kB  4.98%  github.com/nats-io/nats-server/v2/server.(*client).processSubEx\n  512.02kB  2.49%   100%   512.02kB  2.49%  sync.OnceFunc\n",
+    "alloc_top": "File: lab.exe\nBuild ID: C:\\Users\\Jatin\\AppData\\Local\\Temp\\go-build3762557249\\b001\\exe\\lab.exe2026-11-12 11:51:15.2447465 -0800 PST\nType: alloc_space\nTime: 2026-11-12 11:51:38 PST\nShowing nodes accounting for 108.47MB, 80.87% of 134.12MB total\nDropped 99 nodes (cum \u003c= 0.67MB)\nShowing top 12 nodes out of 136\n      flat  flat%   sum%        cum   cum%\n   41.78MB 31.15% 31.15%    41.78MB 31.15%  io.copyBuffer\n      17MB 12.68% 43.83%       19MB 14.17%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/pool.(*Pool).Submit\n      10MB  7.46% 51.28%    14.08MB 10.50%  context.WithDeadlineCause\n       8MB  5.96% 57.25%        8MB  5.96%  github.com/xi2/xz.xzDecLZMA2Reset\n    7.01MB  5.22% 62.47%     7.01MB  5.22%  runtime.mallocgc\n       6MB  4.47% 66.95%        6MB  4.47%  encoding/hex.EncodeToString\n    5.38MB  4.01% 70.95%     5.38MB  4.01%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/bench.runLoad\n    4.07MB  3.04% 73.99%     4.07MB  3.04%  time.newTimer\n    3.23MB  2.41% 76.40%     3.23MB  2.41%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/bench.runPool\n    2.50MB  1.86% 78.26%     2.50MB  1.86%  context.(*cancelCtx).Done\n       2MB  1.49% 79.75%        2MB  1.49%  syscall.UTF16FromString\n    1.50MB  1.12% 80.87%     1.50MB  1.12%  fmt.Sprintf\n",
+    "goroutine_top": "File: lab.exe\nBuild ID: C:\\Users\\Jatin\\AppData\\Local\\Temp\\go-build3762557249\\b001\\exe\\lab.exe2026-11-12 11:51:15.2447465 -0800 PST\nType: goroutine\nTime: 2026-11-12 11:51:38 PST\nShowing nodes accounting for 32, 100% of 32 total\nShowing top 12 nodes out of 63\n      flat  flat%   sum%        cum   cum%\n        31 96.88% 96.88%         31 96.88%  runtime.gopark\n         1  3.12%   100%          1  3.12%  runtime.goroutineProfileWithLabels\n         0     0%   100%          1  3.12%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/bench.Run\n         0     0%   100%          1  3.12%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/bench.runPressure\n         0     0%   100%          1  3.12%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/profile.Capture\n         0     0%   100%          1  3.12%  github.com/JatinF/golang-distributed-systems-performance-lab/internal/profile.writeProfile\n         0     0%   100%          1  3.12%  github.com/jackc/pgx/v5/pgxpool.(*Pool).backgroundHealthCheck\n         0     0%   100%          1  3.12%  github.com/jackc/pgx/v5/pgxpool.NewWithConfig.func5\n         0     0%   100%          1  3.12%  github.com/nats-io/nats%2ego.(*Conn).flusher\n         0     0%   100%          1  3.12%  github.com/nats-io/nats%2ego.(*Conn).readLoop\n         0     0%   100%          1  3.12%  github.com/nats-io/nats%2ego.(*Conn).waitForMsgs\n         0     0%   100%          1  3.12%  github.com/nats-io/nats%2ego.(*asyncCallbacksHandler).asyncCBDispatcher\n",
+    "goroutines": 32,
+    "heap_alloc": 8662608,
+    "total_alloc": 133740312,
+    "num_gc": 21
+  },
+  "gates": [
+    {
+      "name": "postgres-remote",
+      "status": "not-run",
+      "reason": "LAB_POSTGRES_URL is unset. A remote PostgreSQL was not contacted."
+    },
+    {
+      "name": "redis-remote",
+      "status": "not-run",
+      "reason": "LAB_REDIS_URL is unset. A remote Redis was not contacted."
+    },
+    {
+      "name": "nats-remote",
+      "status": "not-run",
+      "reason": "LAB_NATS_URL is unset. A remote NATS cluster was not contacted."
+    },
+    {
+      "name": "oidc-provider",
+      "status": "not-run",
+      "reason": "LAB_OIDC_ISSUER is unset. No OIDC provider was contacted."
+    },
+    {
+      "name": "docker-local",
+      "status": "not-run",
+      "reason": "Docker is not installed on this workstation. A local image build was not run."
+    },
+    {
+      "name": "kubernetes",
+      "status": "not-run",
+      "reason": "kubectl is not installed. No manifest was applied."
+    },
+    {
+      "name": "customer-deployment",
+      "status": "not-run",
+      "reason": "SYN-TENANT-QUORUM is synthetic. No customer deployment was made."
+    }
+  ]
+}

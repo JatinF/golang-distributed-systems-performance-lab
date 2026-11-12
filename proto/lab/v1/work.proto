@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package lab.v1;
+
+option go_package = "github.com/JatinF/golang-distributed-systems-performance-lab/internal/rpc/labpb";
+
+// Work is the lab data plane. Unary Submit and bidirectional Stream
+// carry the same job message.
+service Work {
+  rpc Submit(JobRequest) returns (JobReply);
+  rpc Stream(stream JobRequest) returns (stream JobReply);
+}
+
+message JobRequest {
+  string id = 1;
+  string tenant_id = 2;
+  string kind = 3;
+  bytes payload = 4;
+}
+
+message JobReply {
+  string id = 1;
+  bool accepted = 2;
+  string state = 3;
+  string reason = 4;
+}

@@ -1,0 +1,15 @@
+# Not started on the authoring workstation. Docker is not installed there.
+# The image name was not pulled locally.
+services:
+  lab:
+    image: golang-distributed-systems-performance-lab:not-pulled-locally
+    build:
+      context: ..
+    profiles: ["not-started"]
+    ports:
+      - "127.0.0.1:8096:8096"
+    environment:
+      LAB_POSTGRES_URL: ""
+      LAB_REDIS_URL: ""
+      LAB_NATS_URL: ""
+      LAB_OIDC_ISSUER: ""
